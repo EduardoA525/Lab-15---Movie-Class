@@ -1,22 +1,3 @@
-/*
-Sample output:
-Movie: TestScreenWriter1
-    Year released: 2019
-    Screenwriter: Best Movie of 2019
-
-Movie: TestScreenWriter2
-    Year released: 2020
-    Screenwriter: Best Movie of 2020
-
-Movie: TestScreenWriter3
-    Year released: 2021
-    Screenwriter: Best Movie of 2021
-
-Movie: TestScreenWriter4
-    Year released: 2022
-    Screenwriter: Best Movie of 2022
-*/
-
 //Eduardo Avila
 //COMSC - 210 - 5293
 //Lab 15 - Movie Class
@@ -56,7 +37,11 @@ public:
 int main() {
 
     //Chose vector. Time for vectorization
+    //I'll just print both versions just in case. 
+    //The probably intended version and sample version.
+
     vector<Movie> movies;
+    vector<Movie> moviesSample;
     ifstream fin("input.txt");
 
     string title;
@@ -78,6 +63,14 @@ int main() {
             tempMovie.setWriterName(writerName);
 
             movies.push_back(tempMovie);
+            
+            Movie tempMovieSample;
+
+            tempMovieSample.setTitle(writerName);
+            tempMovieSample.setReleaseYear(releaseYear);
+            tempMovieSample.setWriterName(title);
+
+            moviesSample.push_back(tempMovieSample);
         }
         fin.close();
     }
@@ -86,6 +79,14 @@ int main() {
 
     //Print every movie in the vector
     for (auto val : movies){
+
+        val.print();
+    }
+
+    //Sample version of print to match the sample output
+    cout << "-- SAMPLE VERSION --\n" << endl;
+
+    for (auto val : moviesSample){
 
         val.print();
     }
