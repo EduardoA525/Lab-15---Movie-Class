@@ -63,6 +63,11 @@ public:
     void setWriterName(string w) { writerName = w; }
 
     //Print Function
+    void print() {
+        cout << "Movie: " << title << endl;
+        cout << "   Year released: " << releaseYear << endl;
+        cout << "   Screenwriter: " << writerName << "\n" << endl;
+    }
 
 };
 
