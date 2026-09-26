@@ -38,3 +38,37 @@ Movie: TestScreenWriter4
 //COMSC - 210 - 5293
 //Lab 15 - Movie Class
 
+#include <iostream>
+#include <vector>
+#include <string>
+#include <fstream>
+using namespace std;
+
+//Creation of Movie Class
+class Movie {
+private:
+    string title;
+    int releaseYear;
+    string writerName;
+    
+public:
+    //Setters n getters
+    string getTitle()            { return title; }
+    void setTitle(string t)      { title = t; }
+
+    int getReleaseYear()         { return releaseYear; }
+    void setReleaseYear(int y)   { releaseYear = y; }
+
+    string getWriterName()       { return writerName; }
+    void setWriterName(string w) { writerName = w; }
+
+    //Print Function
+
+};
+
+
+int main() {
+
+
+    return 0;
+}
