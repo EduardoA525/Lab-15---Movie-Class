@@ -68,11 +68,33 @@ public:
         cout << "   Year released: " << releaseYear << endl;
         cout << "   Screenwriter: " << writerName << "\n" << endl;
     }
-
 };
 
 
 int main() {
+
+    //Chose vector. Time for vectorization
+    vector<Movie> movies;
+    ifstream fin("input.txt");
+
+    string title;
+    int releaseYear;
+    string writerName;
+
+    //Loop for reading file
+    while(getline(fin, title)) {
+        fin >> releaseYear;
+        fin.ignore();
+        getline(fin, writerName);
+
+        Movie tempMovie;
+
+        tempMovie.setTitle(title);
+        tempMovie.setReleaseYear(releaseYear);
+        tempMovie.setWriterName(writerName);
+
+        movies.push_back(tempMovie);
+    }
 
 
     return 0;
