@@ -1,21 +1,4 @@
 /*
-Commit your code every ten minutes while working. Set a timer.
-
-Code a Movie class that has the screen writer, the year released, and 
-    the title as its private member variables. It has the standard setters and getters for each private member variable. 
-    Also code a print() method which prints the object data in a simple format.
-
-Your code should read data from an input file, using the data below, 
-    which lists data in this order: title, year released, screen writer name.
-
-Read this data into a temporary Movie object. 
-    Then append that object to your container.
-
-For your container, you can choose an <array> class array or a <vector> class vector. 
-    Store your four records in this container.
-
-Towards the end of your main() function, output the contents of the array/vector.
-
 Sample output:
 Movie: TestScreenWriter1
     Year released: 2019
@@ -70,7 +53,6 @@ public:
     }
 };
 
-
 int main() {
 
     //Chose vector. Time for vectorization
@@ -82,20 +64,31 @@ int main() {
     string writerName;
 
     //Loop for reading file
-    while(getline(fin, title)) {
-        fin >> releaseYear;
-        fin.ignore();
-        getline(fin, writerName);
+    //Makes sure file is good first
+    if (fin.good()){
+        while(getline(fin, title)) {
+            fin >> releaseYear;
+            fin.ignore();
+            getline(fin, writerName);
 
-        Movie tempMovie;
+            Movie tempMovie;
 
-        tempMovie.setTitle(title);
-        tempMovie.setReleaseYear(releaseYear);
-        tempMovie.setWriterName(writerName);
+            tempMovie.setTitle(title);
+            tempMovie.setReleaseYear(releaseYear);
+            tempMovie.setWriterName(writerName);
 
-        movies.push_back(tempMovie);
+            movies.push_back(tempMovie);
+        }
+        fin.close();
     }
+    else
+        cout << "Oopsie Error: Input File not read!" << endl;
 
+    //Print every movie in the vector
+    for (auto val : movies){
+
+        val.print();
+    }
 
     return 0;
 }
